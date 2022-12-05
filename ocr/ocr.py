@@ -188,7 +188,7 @@ class MainWin(QMainWindow):
             return
         path = 'test/result/'
         if not os.path.exists(path):
-            os.mkdir(path)
+            os.makedirs(path)
         with open(path + self.currentImageName + '.txt', 'w') as writer:
             text = self.imageText.toPlainText()
             writer.write(text)
