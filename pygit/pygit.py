@@ -76,7 +76,6 @@ def pushAll(rootDir):
                 print("nothing to commit")
 
 
-
 if __name__ == "__main__":
     # rootDir = os.path.dirname(__file__)
     rootDir = r"D:\Repositories"
