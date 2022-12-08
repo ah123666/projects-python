@@ -77,7 +77,7 @@ class MainWin(QWidget):
             self.info.append("[====push all====]")
             for dir in dir_list:
                 self.info.append("=" * 80)
-                self.info.append("current dir: {}".format(dir))
+                self.info.append(f"current dir: {dir}")
                 try:
                     repo = Repo(dir)
                 except InvalidGitRepositoryError:
@@ -89,16 +89,16 @@ class MainWin(QWidget):
                         git.commit("-m", datetime.datetime.now().strftime("commit at %Y-%m-%d %H:%M:%S"))
                         try:
                             remote = repo.remote(name="github")
-                            self.info.append("remote_url: ", remote.url)
+                            self.info.append(f"remote_url: {remote.url}")
                             info = remote.push()[0]
-                            self.info.append("flags: ", info.flags)
-                            self.info.append("local_ref: ", info.local_ref)
-                            self.info.append("remote_ref_string: ", info.remote_ref_string)
-                            self.info.append("remote_ref: ", info.remote_ref)
-                            self.info.append("old_commit: ", info.old_commit)
-                            self.info.append("summary: ", info.summary)
-                        except:
-                            self.info.append("no remote named github")
+                            self.info.append(f"flags: {info.flags}")
+                            self.info.append(f"local_ref: {info.local_ref}")
+                            self.info.append(f"remote_ref_string: {info.remote_ref_string}")
+                            self.info.append(f"remote_ref: {info.remote_ref}")
+                            self.info.append(f"old_commit: {info.old_commit}")
+                            self.info.append(f"summary: {info.summary}")
+                        except Exception as e:
+                            self.info.append(str(e))
                     else:
                         self.info.append("nothing to commit")
             self.info.append("done!")
@@ -113,7 +113,7 @@ class MainWin(QWidget):
             self.info.append("[====pull all====]")
             for dir in dir_list:
                 self.info.append("=" * 80)
-                self.info.append("current dir: {}".format(dir))
+                self.info.append(f"current dir: {dir}")
                 try:
                     repo = Repo(dir)
                 except InvalidGitRepositoryError:
@@ -121,15 +121,15 @@ class MainWin(QWidget):
                 else:
                     try:
                         remote = repo.remote(name="github")
-                        self.info.append("remote_url: ", remote.url)
+                        self.info.append(f"remote_url: {remote.url}")
                         info = remote.pull()[0]
-                        self.info.append("flags: ", info.flags)
-                        self.info.append("ref: ", info.ref)
-                        self.info.append("note: ", info.note)
-                        self.info.append("old_commit: ", info.old_commit)
-                        self.info.append("remote_ref_path: ", info.remote_ref_path)
-                    except:
-                        self.info.append("no remote named github")
+                        self.info.append(f"flags: {info.flags}")
+                        self.info.append(f"ref: {info.ref}")
+                        self.info.append(f"note: {info.note}")
+                        self.info.append(f"old_commit: {info.old_commit}")
+                        self.info.append(f"remote_ref_path: {info.remote_ref_path}")
+                    except Exception as e:
+                        self.info.append(str(e))
             self.info.append("done!")
         else:
             self.info.append("目录 {} 不存在！".format(root_dir))
