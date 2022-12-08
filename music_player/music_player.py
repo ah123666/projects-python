@@ -76,7 +76,7 @@ def collect_music(file_path):
 
 # 播放音乐
 def play_music(musics, index):
-    pygame.mixer.music.unload()
+    # pygame.mixer.music.unload()
     pygame.mixer.music.load(musics[index])
     pygame.mixer.music.play()
     sound = pygame.mixer.Sound(musics[index])
