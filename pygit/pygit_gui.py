@@ -25,12 +25,15 @@ class MainWin(QWidget):
         self.btn1.setFixedWidth(120)
         self.btn2 = QPushButton("批量拉取")
         self.btn2.setFixedWidth(120)
+        self.btn3 = QPushButton("清空")
+        self.btn3.setFixedWidth(120)
         self.info = QTextEdit()
         self.info.setReadOnly(True)
 
         self.btn_choose.clicked.connect(self.choose_folder)
         self.btn1.clicked.connect(self.push_all)
         self.btn2.clicked.connect(self.pull_all)
+        self.btn3.clicked.connect(lambda: self.info.clear())
 
         layout_h_1 = QHBoxLayout()
         layout_h_1.addWidget(self.edit)
@@ -39,6 +42,7 @@ class MainWin(QWidget):
         layout_h_2 = QHBoxLayout()
         layout_h_2.addWidget(self.btn1)
         layout_h_2.addWidget(self.btn2)
+        layout_h_2.addWidget(self.btn3)
         layout_h_2.setAlignment(Qt.AlignLeft)
 
         layout_v = QVBoxLayout()
