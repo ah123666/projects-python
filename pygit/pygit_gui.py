@@ -101,6 +101,9 @@ class MainWin(QWidget):
                             self.info.append(str(e))
                     else:
                         self.info.append("nothing to commit")
+                finally:
+                    print("aaaa")
+                    self.info.show()
             self.info.append("done!")
         else:
             self.info.append("目录 {} 不存在！".format(root_dir))
