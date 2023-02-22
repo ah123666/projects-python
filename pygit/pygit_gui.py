@@ -76,6 +76,7 @@ class MainWin(QWidget):
             self.info.clear()
             dir_list = self.get_all_dir(root_dir)
             self.info.append("[====push all====]")
+            QApplication.processEvents()
             for dir in dir_list:
                 self.info.append("=" * 80)
                 self.info.append(f"current dir: {dir}")
@@ -102,9 +103,6 @@ class MainWin(QWidget):
                             self.info.append(str(e))
                     else:
                         self.info.append("nothing to commit")
-                finally:
-                    print("aaaa")
-                    self.info.show()
             self.info.append("done!")
         else:
             self.info.append("目录 {} 不存在！".format(root_dir))
