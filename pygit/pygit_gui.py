@@ -114,6 +114,7 @@ class MainWin(QWidget):
             dir_list = self.get_all_dir(root_dir)
             self.info.append("[====pull all====]")
             for dir in dir_list:
+                QApplication.processEvents()
                 self.info.append("=" * 80)
                 self.info.append(f"current dir: {dir}")
                 try:
