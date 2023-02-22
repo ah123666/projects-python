@@ -16,6 +16,7 @@ class MainWin(QWidget):
     def initUI(self):
         self.setWindowTitle("GIT仓库批量操作工具")
         # self.setFixedSize(800, 400)
+        self.setMinimumSize(800, 400)
         self.edit = QLineEdit()
         self.cur_dir = os.path.abspath(os.path.dirname(__file__))
         self.edit.setText(self.cur_dir)
