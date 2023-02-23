@@ -18,7 +18,8 @@ class MainWin(QWidget):
         # self.setFixedSize(800, 400)
         self.setMinimumSize(800, 400)
         self.edit = QLineEdit()
-        self.cur_dir = os.path.abspath(os.path.dirname(__file__))
+        # self.cur_dir = os.path.abspath(os.path.dirname(__file__))
+        self.cur_dir = "C:/"
         self.edit.setText(self.cur_dir)
         self.edit.setPlaceholderText("请输入根目录路径")
         self.btn_choose = QPushButton("选择根目录")
